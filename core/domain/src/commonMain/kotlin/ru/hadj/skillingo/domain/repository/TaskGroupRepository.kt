@@ -9,10 +9,8 @@ interface TaskGroupRepository {
 
     suspend fun insertGroupTask(taskGroup: TaskGroup)
 
-    suspend fun updateGroupTask(name: String): TaskGroup
+    suspend fun updateGroupTask(id: String, name: String)
 
-    suspend fun deleteGroupByIdTask(id: String): TaskGroup
-
-    suspend fun deleteGroupTask(): TaskGroup
+    suspend fun deleteGroupByIdTask(id: String)
 
 }
