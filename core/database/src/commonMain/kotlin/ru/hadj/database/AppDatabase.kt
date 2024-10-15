@@ -2,6 +2,7 @@ package ru.hadj.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import org.koin.core.annotation.Single
 import ru.hadj.database.dao.BoostDao
 import ru.hadj.database.dao.TaskDao
 import ru.hadj.database.dao.TaskGroupDao
@@ -13,7 +14,8 @@ import ru.hadj.skillingo.data.mapper.TaskGroupDBO
     entities = [TaskDBO::class, TaskGroupDBO::class, BoostModeDBO::class],
     version = 1
 )
-abstract class SkillingoDatabase : RoomDatabase() {
+@Single
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 

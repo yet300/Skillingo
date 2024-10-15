@@ -3,12 +3,14 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -31,24 +33,31 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     jvm("desktop")
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
+            implementation(project(":core:domain"))
+            implementation(project(":core:data"))
+            implementation(project(":core:database"))
+            implementation(project(":core:uikit"))
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -58,6 +67,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(projects.shared)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.anotation)
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -95,6 +108,22 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+}
+
+dependencies {
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
+    add("kspAndroid", libs.koin.ksp.compiler)
+}
+
+project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
+}
+
+ksp {
+//    arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
+    arg("KOIN_CONFIG_CHECK", "true")
 }
 
 compose.desktop {

@@ -1,14 +1,18 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
 
@@ -28,16 +32,19 @@ kotlin {
             implementation(project(":core:database"))
 
             implementation(libs.kotlinx.coroutines.core)
+
             implementation(libs.koin.anotation)
-            implementation( libs.koin.anotation.bom)
+
+            sourceSets.named("commonMain").configure {
+                kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+            }
 
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
 
-        androidMain.dependencies {
-        }
+        androidMain.dependencies {}
 
         jsMain.dependencies {
         }
@@ -51,6 +58,24 @@ kotlin {
         jvmMain.dependencies {
         }
     }
+}
+
+dependencies {
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
+    add("kspAndroid", libs.koin.ksp.compiler)
+    add("kspIosX64", libs.koin.ksp.compiler)
+    add("kspIosArm64", libs.koin.ksp.compiler)
+    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
+}
+
+project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
+    if(name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
+}
+
+ksp {
+    arg("KOIN_CONFIG_CHECK","true")
 }
 
 android {
