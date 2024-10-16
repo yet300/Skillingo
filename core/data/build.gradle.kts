@@ -59,17 +59,16 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.koin.anotation)
-
-            sourceSets.named("commonMain").configure {
-                kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
-            }
+            implementation(libs.koin.core)
 
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
 
-        androidMain.dependencies {}
+        androidMain.dependencies {
+            implementation(libs.koin.android)
+        }
 
         jsMain.dependencies {
         }
@@ -105,6 +104,8 @@ project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
 
 ksp {
     arg("KOIN_CONFIG_CHECK","true")
+    arg("koin.module.packages", "ru.hadj.data")
+
 }
 
 android {
@@ -114,7 +115,7 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }

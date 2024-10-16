@@ -61,6 +61,7 @@ kotlin {
             implementation(libs.sqlite.bundled)
 
             implementation(libs.koin.anotation)
+            implementation(libs.koin.core)
 
         }
         commonTest.dependencies {
@@ -91,13 +92,14 @@ dependencies {
 }
 
 project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
-    if(name != "kspCommonMainKotlinMetadata") {
+    if (name != "kspCommonMainKotlinMetadata") {
         dependsOn("kspCommonMainKotlinMetadata")
     }
 }
 
 ksp {
-    arg("KOIN_CONFIG_CHECK","true")
+    arg("KOIN_CONFIG_CHECK", "true")
+    arg("koin.module.packages", "ru.hadj.database")
 }
 
 
@@ -108,7 +110,7 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }

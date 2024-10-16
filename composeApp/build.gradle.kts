@@ -125,6 +125,7 @@ project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
 ksp {
 //    arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
     arg("KOIN_CONFIG_CHECK", "true")
+    arg("koin.module.packages", "ru.hadj.composeApp")
 }
 
 compose.desktop {
