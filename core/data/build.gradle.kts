@@ -104,7 +104,7 @@ project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
 
 ksp {
     arg("KOIN_CONFIG_CHECK","true")
-    arg("koin.module.packages", "ru.hadj.data")
+    arg("koin.module.packages", "ru.hadj.skillingo.data")
 
 }
 
