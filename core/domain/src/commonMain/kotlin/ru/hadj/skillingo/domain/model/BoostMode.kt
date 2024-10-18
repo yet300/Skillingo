@@ -5,7 +5,7 @@ import kotlin.time.Duration
 
 
 data class BoostMode(
-    val id: String,
+    val id: Long,
     val isActive: Boolean = false,
     val startTime: Instant? = null,
     val duration: Duration = Duration.ZERO

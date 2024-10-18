@@ -1,7 +1,7 @@
 package ru.hadj.skillingo.domain.model
 
 data class TaskGroup(
-    val id: String,
+    val id: Long,
     val name: String,
-    val taskId: String
+    val taskId: Long
 )
