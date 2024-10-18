@@ -1,9 +1,6 @@
 package ru.hadj.database
 
-import androidx.room.Room
-import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-
-//fun getSkillingoDataBase(): AppDatabase {
+//fun SkillingoDatabase(): AppDatabase {
 //    val dbFile = NSHomeDirectory() + "/skillingo.db"
 //    return Room.databaseBuilder<AppDatabase>(
 //        name = dbFile,
