@@ -3,7 +3,7 @@ package ru.hadj.skillingo.data.implementation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.koin.core.annotation.Single
-import ru.hadj.database.AppDatabase
+import ru.hadj.database.db.AppDatabase
 import ru.hadj.skillingo.data.mapper.toDBO
 import ru.hadj.skillingo.data.mapper.toTaskGroup
 import ru.hadj.skillingo.domain.model.TaskGroup

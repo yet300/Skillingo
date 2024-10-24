@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
@@ -50,7 +48,12 @@ kotlin {
         it.binaries.framework {
             baseName = "database"
             isStatic = true
+            linkerOpts.add("-lsqlite3")
         }
+    }
+
+    sourceSets.commonMain{
+        kotlin.srcDir("build/generated/ksp/metadata")
     }
 
     sourceSets {
@@ -72,35 +75,26 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.room.runtime.android)
         }
-
-        sourceSets.named("commonMain").configure {
-            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
-        }
     }
-}
-
-room {
-    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
     add("kspCommonMainMetadata", libs.koin.ksp.compiler)
-    add("kspAndroid", libs.koin.ksp.compiler)
-    add("kspIosX64", libs.koin.ksp.compiler)
-    add("kspIosArm64", libs.koin.ksp.compiler)
-    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
     ksp(libs.room.compiler)
 }
 
-project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
-    if (name != "kspCommonMainKotlinMetadata") {
+tasks.withType(KotlinCompilationTask::class.java).configureEach {
+    if (name != "kspCommonMainKotlinMetadata" ) {
         dependsOn("kspCommonMainKotlinMetadata")
     }
 }
 
+room {
+    schemaDirectory("$projectDir/build/generated/schemas")
+}
+
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
-    arg("koin.module.packages", "ru.hadj.database")
 }
 
 
