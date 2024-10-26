@@ -18,14 +18,14 @@ kotlinx-coroutines = "1.9.0"
 kotlinx-serialization = "1.7.3"
 kotlinx-datatime = "0.6.1"
 
-decompose = "3.1.0"
+decompose = "3.2.0"
 
 room = "2.7.0-alpha10"
 ksp = "2.0.20-1.0.25"
 sqlite = "2.5.0-SNAPSHOT"
 
 koin = "4.0.0"
-koin-anotation = "1.4.0-RC4"
+koin-anotation = "1.4.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

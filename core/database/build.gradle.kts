@@ -63,8 +63,8 @@ kotlin {
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
 
-            implementation(libs.koin.anotation)
             implementation(libs.koin.core)
+            api(libs.koin.anotation)
 
         }
         commonTest.dependencies {
@@ -80,6 +80,10 @@ kotlin {
 
 dependencies {
     add("kspCommonMainMetadata", libs.koin.ksp.compiler)
+    add("kspAndroid", libs.koin.ksp.compiler)
+    add("kspIosX64", libs.koin.ksp.compiler)
+    add("kspIosArm64", libs.koin.ksp.compiler)
+    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
     ksp(libs.room.compiler)
 }
 
@@ -95,6 +99,7 @@ room {
 
 ksp {
     arg("KOIN_CONFIG_CHECK", "true")
+    arg("KOIN_DEFAULT_MODULE","false")
 }
 
 

@@ -5,4 +5,4 @@ import org.koin.core.annotation.Module
 
 @Module
 @ComponentScan("ru.hadj.database.db")
-actual class DataBaseModulePlatform
+actual class DatabasePlatformModule
