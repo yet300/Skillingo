@@ -1,8 +1,13 @@
 package ru.hadj.skillingo.data.di
 
-import org.koin.core.annotation.ComponentScan
-import org.koin.core.annotation.Module
+import org.koin.core.module.dsl.singleOf
+import org.koin.dsl.module
+import ru.hadj.database.di.databaseModule
+import ru.hadj.skillingo.data.implementation.TaskGroupRepositoryImpl
+import ru.hadj.skillingo.data.implementation.TaskRepositoryImpl
 
-@Module
-@ComponentScan
-class DataModule
+
+val dataModule = module {
+    singleOf(::TaskRepositoryImpl)
+    singleOf(::TaskGroupRepositoryImpl)
+} + databaseModule

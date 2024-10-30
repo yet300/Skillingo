@@ -52,9 +52,6 @@ kotlin {
         }
     }
 
-    sourceSets.commonMain{
-        kotlin.srcDir("build/generated/ksp/metadata")
-    }
 
     sourceSets {
         commonMain.dependencies {
@@ -64,7 +61,7 @@ kotlin {
             implementation(libs.sqlite.bundled)
 
             implementation(libs.koin.core)
-            api(libs.koin.anotation)
+            implementation(project.dependencies.platform(libs.koin.bom))
 
         }
         commonTest.dependencies {
@@ -79,11 +76,6 @@ kotlin {
 }
 
 dependencies {
-    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
-    add("kspAndroid", libs.koin.ksp.compiler)
-    add("kspIosX64", libs.koin.ksp.compiler)
-    add("kspIosArm64", libs.koin.ksp.compiler)
-    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
     ksp(libs.room.compiler)
 }
 
@@ -95,11 +87,6 @@ tasks.withType(KotlinCompilationTask::class.java).configureEach {
 
 room {
     schemaDirectory("$projectDir/build/generated/schemas")
-}
-
-ksp {
-    arg("KOIN_CONFIG_CHECK", "true")
-    arg("KOIN_DEFAULT_MODULE","false")
 }
 
 

@@ -5,10 +5,6 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
 import androidx.room.TypeConverters
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
-import org.koin.core.annotation.Provided
-import org.koin.core.annotation.Single
 import ru.hadj.database.dao.BoostDao
 import ru.hadj.database.dao.TaskDao
 import ru.hadj.database.dao.TaskGroupDao
@@ -43,18 +39,6 @@ abstract class SkillingpRoomDatabase : RoomDatabase() {
 }
 
 internal const val dbFileName = "skillingo_db"
-
-@Single
-fun SkillingoDatabase(
-    @Provided databaseBuilder: RoomDatabase.Builder<SkillingpRoomDatabase>,
-): SkillingoDatabase {
-    return SkillingoDatabase(
-        databaseBuilder
-            .setQueryCoroutineContext(Dispatchers.IO)
-            .fallbackToDestructiveMigration(dropAllTables = false)
-            .build()
-    )
-}
 
 
 // The Room compiler generates the `actual` implementations.
