@@ -6,6 +6,8 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ksp)
+
 }
 
 kotlin {
@@ -48,9 +50,32 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            api(projects.core.common)
+            implementation(projects.core.data)
+            implementation(projects.core.database)
+
+            implementation(libs.kotlin.inject)
+        }
+
+        jvmMain.dependencies{
+            implementation(libs.sqlite.bundled)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.sqlite.bundled)
         }
     }
+}
+
+dependencies{
+    // 1. Configure code generation into the common source set
+    "kspCommonMainMetadata"(libs.kotlin.inject)
+
+    // 2. Configure code generation into each KMP target source set
+    "kspAndroid"(libs.kotlin.inject.compiler.ksp)
+    "kspIosX64"(libs.kotlin.inject.compiler.ksp)
+    "kspIosArm64"(libs.kotlin.inject.compiler.ksp)
+    "kspIosSimulatorArm64"(libs.kotlin.inject.compiler.ksp)
 }
 
 android {

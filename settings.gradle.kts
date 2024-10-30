@@ -29,9 +29,10 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-//include(":shared")
 include(":core")
+include(":core:common")
 include(":core:domain")
 include(":core:data")
 include(":core:database")
 include(":core:uikit")
+include(":shared")

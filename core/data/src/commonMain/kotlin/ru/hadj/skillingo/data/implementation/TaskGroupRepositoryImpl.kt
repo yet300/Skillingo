@@ -2,16 +2,17 @@ package ru.hadj.skillingo.data.implementation
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import org.koin.core.annotation.Single
-import ru.hadj.database.db.AppDatabase
+import me.tatarka.inject.annotations.Inject
+//import ru.hadj.database.db.SkillingoDatabase
+import ru.hadj.database.db.SkillingpRoomDatabase
 import ru.hadj.skillingo.data.mapper.toDBO
 import ru.hadj.skillingo.data.mapper.toTaskGroup
 import ru.hadj.skillingo.domain.model.TaskGroup
 import ru.hadj.skillingo.domain.repository.TaskGroupRepository
 
-@Single
+@Inject
 class TaskGroupRepositoryImpl(
-    private val database: AppDatabase,
+    private val database: SkillingpRoomDatabase,
 ) : TaskGroupRepository {
 
     override fun getGroupTask(): Flow<List<TaskGroup>> = flow {

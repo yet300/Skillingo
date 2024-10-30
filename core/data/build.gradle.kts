@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -53,21 +52,18 @@ kotlin {
     }
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":core:domain"))
-            implementation(project(":core:database"))
+            implementation(projects.core.database)
+            implementation(projects.core.domain)
+            implementation(projects.core.common)
 
             implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.koin.anotation)
-            implementation(libs.koin.core)
-
+            api(libs.kotlin.inject)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
 
         androidMain.dependencies {
-            implementation(libs.koin.android)
         }
 
         jsMain.dependencies {
@@ -81,31 +77,7 @@ kotlin {
 
         jvmMain.dependencies {
         }
-
-        sourceSets.named("commonMain").configure {
-            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
-        }
     }
-}
-
-dependencies {
-    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
-    add("kspAndroid", libs.koin.ksp.compiler)
-    add("kspIosX64", libs.koin.ksp.compiler)
-    add("kspIosArm64", libs.koin.ksp.compiler)
-    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
-}
-
-project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
-    if(name != "kspCommonMainKotlinMetadata") {
-        dependsOn("kspCommonMainKotlinMetadata")
-    }
-}
-
-ksp {
-    arg("KOIN_CONFIG_CHECK","true")
-    arg("koin.module.packages", "ru.hadj.skillingo.data")
-
 }
 
 android {

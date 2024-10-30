@@ -1,6 +1,7 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -52,49 +53,43 @@ kotlin {
         }
     }
 
-    sourceSets.commonMain{
-        kotlin.srcDir("build/generated/ksp/metadata")
-    }
-
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.core.common)
+            
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.data.time)
-            implementation(libs.room.runtime)
-            implementation(libs.sqlite.bundled)
 
-            implementation(libs.koin.anotation)
-            implementation(libs.koin.core)
-
+            api(libs.room.runtime)
+            api(libs.room.common)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
 
         androidMain.dependencies {
-            implementation(libs.koin.android)
             implementation(libs.room.runtime.android)
+            implementation(libs.sqlite.bundled)
+        }
+        iosMain.dependencies {
+            implementation(libs.sqlite.bundled)
+        }
+        jvmMain.dependencies {
+            implementation(libs.sqlite.bundled)
         }
     }
 }
 
 dependencies {
-    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
     ksp(libs.room.compiler)
-}
 
-tasks.withType(KotlinCompilationTask::class.java).configureEach {
-    if (name != "kspCommonMainKotlinMetadata" ) {
-        dependsOn("kspCommonMainKotlinMetadata")
-    }
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
 }
 
 room {
     schemaDirectory("$projectDir/build/generated/schemas")
-}
-
-ksp {
-    arg("KOIN_CONFIG_CHECK", "true")
 }
 
 
