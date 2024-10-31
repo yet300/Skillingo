@@ -1,13 +1,8 @@
 import SwiftUI
 import Shared
 
-
 struct ContentView: View {
-    
-    init{
-        HelperKt.doInitKoin()
-    }
-    
+
     @State private var showContent = false
     var body: some View {
         VStack {

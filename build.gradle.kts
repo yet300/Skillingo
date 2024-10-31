@@ -10,3 +10,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.room) apply false
 }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile::class.java) {
+    kotlinOptions.freeCompilerArgs += "-Djansi.tmpdir=/tmp"
+}
