@@ -5,13 +5,13 @@ android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activityCompose = "1.9.3"
 androidx-appcompat = "1.7.0"
-androidx-constraintlayout = "2.1.4"
-androidx-core-ktx = "1.13.1"
+androidx-constraintlayout = "2.2.0"
+androidx-core-ktx = "1.15.0"
 androidx-espresso-core = "3.6.1"
-androidx-lifecycle = "2.8.2"
+androidx-lifecycle = "2.8.3"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
-compose-plugin = "1.6.11"
+compose-plugin = "1.7.0"
 junit = "4.13.2"
 kotlin = "2.0.20"
 kotlinx-coroutines = "1.9.0"
@@ -20,7 +20,8 @@ kotlinx-datatime = "0.6.1"
 
 decompose = "3.2.0"
 
-room = "2.7.0-alpha10"
+room = "2.7.0-alpha11"
+datastore = "1.1.1"
 ksp = "2.0.20-1.0.25"
 sqlite = "2.5.0-SNAPSHOT"
 
@@ -55,6 +56,9 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-runtime-android = { module = "androidx.room:room-runtime-android", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+
+datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+
 
 #koin
 koin-bom = { group = "io.insert-koin", name = "koin-bom",version.ref = "koin" }

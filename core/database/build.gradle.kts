@@ -59,6 +59,7 @@ kotlin {
             implementation(libs.kotlinx.data.time)
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
+            implementation(libs.datastore)
 
             implementation(libs.koin.core)
             implementation(project.dependencies.platform(libs.koin.bom))

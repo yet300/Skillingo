@@ -3,9 +3,11 @@ package ru.hadj.database.di
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import ru.hadj.database.db.SkillingoDatabase
 import ru.hadj.database.db.SkillingpRoomDatabase
+import ru.hadj.database.store.OnBoardingDataStore
 
 val databaseModule = module {
     single<SkillingoDatabase> {
@@ -16,4 +18,7 @@ val databaseModule = module {
                 .build()
         )
     }
-} + dataBasePlatformModule
+
+    singleOf(::OnBoardingDataStore)
+
+} + dataBasePlatformModule + dataStoreModule
