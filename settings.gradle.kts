@@ -30,6 +30,12 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":shared")
+
+include(":feature")
+include(":feature:root")
+include(":feature:home")
+include(":feature:onboarding")
+
 include(":core")
 include(":core:domain")
 include(":core:data")
