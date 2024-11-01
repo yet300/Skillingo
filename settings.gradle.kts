@@ -37,6 +37,7 @@ include(":feature:home")
 include(":feature:onboarding")
 
 include(":core")
+include(":core:common")
 include(":core:domain")
 include(":core:data")
 include(":core:database")
