@@ -8,11 +8,20 @@ import com.arkivanov.decompose.router.stack.replaceAll
 import com.arkivanov.decompose.value.Value
 import com.hadj.skillingo.home.DefaultHomeComponent
 import com.hadj.skillingo.onboarding.DefaultOnBoardingComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+import ru.hadj.skillingo.common.AppDispatchers
+import ru.hadj.skillingo.domain.repository.LocalOnBoarding
 
 class DefaultRootComponent(
     private val componentContext: ComponentContext,
-) : RootComponent, ComponentContext by componentContext {
+) : RootComponent, KoinComponent, ComponentContext by componentContext {
+
+    private val onBoarding by inject<LocalOnBoarding>()
+    private val dispatchers by inject<AppDispatchers>()
 
     private val navigation = StackNavigation<Configuration>()
 
@@ -20,7 +29,7 @@ class DefaultRootComponent(
     private val stack = childStack(
         source = navigation,
         serializer = Configuration.serializer(),
-        initialConfiguration = Configuration.HomeScreen,
+        initialConfiguration = if (onBoarding.read()) Configuration.HomeScreen else Configuration.OnboardingScreen,
         handleBackButton = true,
         childFactory = ::createChild
     )
@@ -42,7 +51,12 @@ class DefaultRootComponent(
             DefaultOnBoardingComponent(
                 componentContext = componentContext,
                 //the entire navigation stack is replaced leaving only
-                onNavigate = { navigation.replaceAll(Configuration.HomeScreen) }
+                onNavigate = {
+                    CoroutineScope(dispatchers.io).launch {
+                        onBoarding.save(true)
+                        navigation.replaceAll(Configuration.HomeScreen)
+                    }
+                }
             )
         )
     }

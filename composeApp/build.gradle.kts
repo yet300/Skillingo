@@ -63,6 +63,10 @@ kotlin {
             implementation(libs.koin.android)
         }
         commonMain.dependencies {
+            implementation(projects.feature.onboarding)
+            implementation(projects.feature.home)
+            implementation(projects.feature.root)
+
             implementation(projects.shared)
             implementation(projects.core.data)
             implementation(projects.core.uikit)
@@ -75,6 +79,9 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+
+            implementation(libs.decompose)
+            implementation(libs.decompose.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

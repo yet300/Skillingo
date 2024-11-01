@@ -48,12 +48,17 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.feature.onboarding)
+            implementation(projects.feature.home)
+            implementation(projects.feature.root)
+
             implementation(projects.core.data)
+            implementation(projects.core.common)
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
         }
 
-        jvmMain.dependencies{
+        jvmMain.dependencies {
             implementation(libs.sqlite.bundled)
         }
 

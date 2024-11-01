@@ -5,11 +5,12 @@ import org.koin.dsl.KoinAppDeclaration
 import ru.hadj.skillingo.common.di.commonModule
 import ru.hadj.skillingo.data.di.dataModule
 
+fun allModules() = listOf(commonModule) + dataModule
 
 fun initKoin(config: KoinAppDeclaration? = null) {
     startKoin {
         modules(
-            commonModule, dataModule
+            allModules()
         )
         config?.invoke(this)
     }

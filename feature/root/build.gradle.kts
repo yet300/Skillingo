@@ -52,12 +52,17 @@ kotlin {
     }
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.core.common)
+            implementation(projects.core.domain)
             implementation(projects.feature.home)
             implementation(projects.feature.onboarding)
 
             implementation(libs.decompose)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlin.serialization.json)
+
+            implementation(libs.koin.core)
+            implementation(project.dependencies.platform(libs.koin.bom))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

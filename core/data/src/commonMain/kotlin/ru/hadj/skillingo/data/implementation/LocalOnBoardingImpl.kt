@@ -1,6 +1,7 @@
 package ru.hadj.skillingo.data.implementation
 
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import ru.hadj.database.store.OnBoardingDataStore
 import ru.hadj.skillingo.domain.repository.LocalOnBoarding
 
@@ -12,7 +13,9 @@ class LocalOnBoardingImpl(
         dataStore.saveOnBoardingState(completed)
     }
 
-    override fun read(): Flow<Boolean> {
-        return dataStore.readOnBoardingState()
+    override fun read(): Boolean {
+        return runBlocking {
+            dataStore.readOnBoardingState().first()
+        }
     }
 }
