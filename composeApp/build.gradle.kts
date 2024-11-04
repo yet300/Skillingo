@@ -63,11 +63,12 @@ kotlin {
             implementation(libs.koin.android)
         }
         commonMain.dependencies {
-            implementation(projects.feature.onboarding)
-            implementation(projects.feature.home)
-            implementation(projects.feature.root)
+            implementation(projects.shared.feature.onboarding)
+            implementation(projects.shared.feature.home)
+            implementation(projects.shared.feature.root)
 
-            implementation(projects.shared)
+            implementation(projects.shared.shared)
+
             implementation(projects.core.data)
             implementation(projects.core.uikit)
 

@@ -30,11 +30,12 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":shared")
+include(":shared:shared")
 
-include(":feature")
-include(":feature:root")
-include(":feature:home")
-include(":feature:onboarding")
+include(":shared:feature")
+include(":shared:feature:root")
+include(":shared:feature:home")
+include(":shared:feature:onboarding")
 
 include(":core")
 include(":core:common")
