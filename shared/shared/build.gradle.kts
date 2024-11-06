@@ -48,6 +48,10 @@ kotlin {
             export(projects.shared.feature.home)
             export(projects.shared.feature.onboarding)
 
+            export(projects.core.uikit)
+            export(libs.moko.resources)
+            export(libs.moko.graphics)
+
             export(libs.decompose)
             export(libs.essenty.lifecycle)
             export(libs.essenty.stateKeeper)
@@ -64,13 +68,13 @@ kotlin {
             api(projects.shared.feature.onboarding)
             api(projects.shared.feature.home)
             api(projects.shared.feature.root)
+            api(projects.core.uikit)
 
             api(libs.decompose)
             api(libs.essenty.lifecycle)
             api(libs.essenty.backHandler)
             api(libs.essenty.stateKeeper)
             api(libs.essenty.instanceKeeper)
-
             // implementation зависимости
             implementation(projects.core.data)
             implementation(projects.core.common)

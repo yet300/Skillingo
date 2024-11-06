@@ -1,13 +1,12 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -16,26 +15,6 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
-    }
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        moduleName = "uikit"
-        browser {
-            val rootDirPath = project.rootDir.path
-            val projectDirPath = project.projectDir.path
-            commonWebpackConfig {
-                outputFileName = "uikit.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
-                        add(rootDirPath)
-                        add(projectDirPath)
-                    }
-                }
-            }
-        }
-        binaries.executable()
     }
 
     jvm("desktop")
@@ -48,11 +27,18 @@ kotlin {
         it.binaries.framework {
             baseName = "uikit"
             isStatic = true
+            export(libs.moko.resources)
+            export(libs.moko.graphics)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
+            api(libs.moko.resources)
+            api(libs.moko.graphics)
+
+            implementation(libs.moko.compose)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -66,7 +52,7 @@ kotlin {
 }
 
 android {
-    namespace = "ru.hadj.uikit"
+    namespace = "com.hadj.uikit"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -75,4 +61,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+multiplatformResources {
+    resourcesPackage.set("com.hadj.uikit.mokoResource")
+    resourcesClassName.set("Res")
 }

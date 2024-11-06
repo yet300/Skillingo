@@ -17,7 +17,16 @@ struct HomeView: View {
 //    }
 
     var body: some View {
-        Text("home screen!").padding()
+        VStack{
+            Text("home screen!")            
+            Text(
+                Res.strings().test.desc().localized()
+            )
+            
+            Text(
+                Strings().get(id: Res.strings().hello_world, args:[])
+            )
+        }.padding()
     }
 }
 

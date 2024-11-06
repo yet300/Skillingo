@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background Color -->
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#121212</color>
+    <color name="background_color">
+        <light>@color/background_light</light>
+        <dark>@color/background_dark</dark>
+    </color>
+
+    <!-- Primary Color -->
+    <color name="primary_light">#339900</color> <!-- Duolingo Green -->
+    <color name="primary_dark">#54B148</color> <!-- Darker Green for Dark Mode -->
+    <color name="primary_color">
+        <light>@color/primary_light</light>
+        <dark>@color/primary_dark</dark>
+    </color>
+
+    <!-- Secondary Color -->
+    <color name="secondary_light">#FFC107</color> <!-- Duolingo Yellow/Orange -->
+    <color name="secondary_dark">#FFCA28</color> <!-- Slightly Brighter for Dark Mode -->
+    <color name="secondary_color">
+        <light>@color/secondary_light</light>
+        <dark>@color/secondary_dark</dark>
+    </color>
+
+    <!-- Tertiary Color (Optional - for accents) -->
+    <color name="tertiary_light">#FF9800</color> <!-- Duolingo Orange -->
+    <color name="tertiary_dark">#FFB74D</color> <!-- Slightly Brighter for Dark Mode -->
+    <color name="tertiary_color">
+        <light>@color/tertiary_light</light>
+        <dark>@color/tertiary_dark</dark>
+    </color>
+
+    <!-- Error Color -->
+    <color name="error_light">#D32F2F</color> <!-- Duolingo Red -->
+    <color name="error_dark">#EF5350</color> <!-- Slightly Brighter for Dark Mode -->
+    <color name="error_color">
+        <light>@color/error_light</light>
+        <dark>@color/error_dark</dark>
+    </color>
+
+    <!-- Surface Color -->
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#121212</color>
+    <color name="surface_color">
+        <light>@color/surface_light</light>
+        <dark>@color/surface_dark</dark>
+    </color>
+
+    <!-- On Surface Color -->
+    <color name="on_surface_light">#1C1B1F</color>
+    <color name="on_surface_dark">#E6E1E5</color>
+    <color name="on_surface_color">
+        <light>@color/on_surface_light</light>
+        <dark>@color/on_surface_dark</dark>
+    </color>
+</resources>

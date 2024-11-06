@@ -21,6 +21,9 @@ kotlinx-datatime = "0.6.1"
 decompose = "3.2.1"
 essenty = "2.2.1"
 
+moko-resources = "0.24.3"
+moko-graphics = "0.9.0"
+
 room = "2.7.0-alpha11"
 datastore = "1.1.1"
 ksp = "2.0.20-1.0.25"
@@ -41,6 +44,12 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+
+#moko resources
+moko-generator = { group = "dev.icerock.moko", name = "resources-generator", version.ref = "moko-resources" }
+moko-compose = { group = "dev.icerock.moko", name = "resources-compose", version.ref = "moko-resources" }
+moko-resources = { group = "dev.icerock.moko", name = "resources", version.ref = "moko-resources" }
+moko-graphics = { group = "dev.icerock.moko", name = "graphics", version.ref = "moko-graphics" }
 
 kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }

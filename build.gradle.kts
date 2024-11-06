@@ -11,6 +11,11 @@ plugins {
     alias(libs.plugins.room) apply false
 }
 
+buildscript {
+    dependencies {
+        classpath(libs.moko.generator)
+    }
+}
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile::class.java) {
     kotlinOptions.freeCompilerArgs += "-Djansi.tmpdir=/tmp"
 }
