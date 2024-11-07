@@ -22,6 +22,7 @@ struct OnBoardingView: View {
             Button("Next") {
                 component.onClick()
             }
+                    .buttonStyle(GrowingButton())
         }
     }
 }
