@@ -2,4 +2,16 @@
 <resources>
     <string name="hello_world">Привет moko-resources</string>
     <string name="test">Второе значение для теста</string>
+    <string name="welcome">Добро Пожаловать в\nSkillingo</string>
+    <string name="welcome_text">Это ваш приватный, мультиплатформенный центр для управления
+        бесконечным потоком задач.
+    </string>
+    <string name="shock_mode_title">Ударный режим</string>
+    <string name="shock_mode_description">Повысьте свою продуктивность с помощью сфокусированных
+        всплесков работы.
+    </string>
+    <string name="endless_tasks_title">Бесконечные задачи</string>
+    <string name="endless_tasks_description">Управляйте бесконечным потоком задач без ограничений.
+    </string>
+    <string name="continue">Продолжить</string>
 </resources>

@@ -2,4 +2,15 @@
 <resources>
     <string name="hello_world">Hello moko-resources World</string>
     <string name="test">Second value for Test</string>
+    <string name="welcome">Welcome to\nSkillingo</string>
+    <string name="welcome_text">This is your private, cross-platform hub for managing an
+        endless stream of tasks.
+    </string>
+    <string name="shock_mode_title">Shock Mode</string>
+    <string name="shock_mode_description">Boost your productivity with focused bursts of work.
+    </string>
+    <string name="endless_tasks_title">Endless Tasks</string>
+    <string name="endless_tasks_description">Manage an infinite stream of tasks without limits.
+    </string>
+    <string name="continues">Continue</string>
 </resources>

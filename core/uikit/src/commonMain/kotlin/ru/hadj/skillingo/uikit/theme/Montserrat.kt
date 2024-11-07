@@ -11,8 +11,8 @@ import dev.icerock.moko.resources.compose.fontFamilyResource
 @Composable
 fun SkillingoTypography() = Typography(
     displayLarge = TextStyle(
-        fontFamily = fontFamilyResource(Res.fonts.montserrat),
-        fontWeight = FontWeight.Bold,
+        fontFamily = fontFamilyResource(Res.fonts.montserrat_black),
+        fontWeight = FontWeight.ExtraBold,
         fontSize = 30.sp,
     ),
     displayMedium = TextStyle(
@@ -26,7 +26,7 @@ fun SkillingoTypography() = Typography(
         fontSize = 16.sp,
     ),
     bodyMedium = TextStyle(
-        fontFamily = fontFamilyResource(Res.fonts.montserrat),
+        fontFamily = fontFamilyResource(Res.fonts.montserrat_black),
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
     ),
