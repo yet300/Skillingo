@@ -26,6 +26,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D44BE1372CDBA2A9005BAD7C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Font.swift,
+			);
+			target = 7555FF7A242A565900829871 /* iosApp */;
+		};
 		D46AA0562CD7AB62009D7715 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -36,6 +43,13 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		D44BE1382CDBA2A9005BAD7C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 7555FF79242A565900829871 /* Resources */;
+			membershipExceptions = (
+				Font.swift,
+			);
+		};
 		D46AA0572CD7AB62009D7715 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 7555FF79242A565900829871 /* Resources */;
@@ -46,6 +60,7 @@
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D44BE1322CDBA266005BAD7C /* extension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D44BE1372CDBA2A9005BAD7C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D44BE1382CDBA2A9005BAD7C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = extension; sourceTree = "<group>"; };
 		D460FC372CD609D7002C8A19 /* screens */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = screens; sourceTree = "<group>"; };
 		D46AA04B2CD7646E009D7715 /* decompose */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D46AA0562CD7AB62009D7715 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D46AA0572CD7AB62009D7715 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = decompose; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -97,6 +112,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				D44BE1322CDBA266005BAD7C /* extension */,
 				D46AA04B2CD7646E009D7715 /* decompose */,
 				D40BFCB22CD68A7400849396 /* AppDelegate.swift */,
 				D460FC372CD609D7002C8A19 /* screens */,
@@ -135,6 +151,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				D44BE1322CDBA266005BAD7C /* extension */,
 				D460FC372CD609D7002C8A19 /* screens */,
 				D46AA04B2CD7646E009D7715 /* decompose */,
 			);

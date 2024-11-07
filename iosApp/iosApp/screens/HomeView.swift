@@ -26,6 +26,10 @@ struct HomeView: View {
             Text(
                 Strings().get(id: Res.strings().hello_world, args:[])
             )
+            .bold()
+            .padding()
+            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10.0))
+            .foregroundStyle(.secondary)
         }.padding()
     }
 }
