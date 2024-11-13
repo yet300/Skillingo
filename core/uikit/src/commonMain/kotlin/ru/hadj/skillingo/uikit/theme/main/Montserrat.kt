@@ -1,4 +1,4 @@
-package ru.hadj.skillingo.uikit.theme
+package ru.hadj.skillingo.uikit.theme.main
 
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
