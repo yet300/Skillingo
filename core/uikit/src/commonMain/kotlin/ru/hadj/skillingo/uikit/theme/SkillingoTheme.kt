@@ -10,24 +10,92 @@ import dev.icerock.moko.resources.compose.colorResource
 
 @Composable
 private fun DarkColorScheme() = darkColorScheme(
-    background = colorResource(Res.colors.background_dark),
-    primary = colorResource(Res.colors.primary_dark),
-    secondary = colorResource(Res.colors.secondary_dark),
-    tertiary = colorResource(Res.colors.tertiary_dark),
-    error = colorResource(Res.colors.error_dark),
-    surface = colorResource(Res.colors.surface_dark),
-    onSurface = colorResource(Res.colors.on_surface_dark)
+    primary = colorResource(Res.colors.dark_primary),
+    onPrimary = colorResource(Res.colors.dark_onPrimary),
+
+    primaryContainer = colorResource(Res.colors.dark_primaryContainer),
+    onPrimaryContainer = colorResource(Res.colors.dark_onPrimaryContainer),
+
+    inversePrimary = colorResource(Res.colors.dark_inversePrimary),
+
+    secondary = colorResource(Res.colors.dark_secondary),
+    onSecondary = colorResource(Res.colors.dark_onSecondary),
+
+    secondaryContainer = colorResource(Res.colors.dark_secondaryContainer),
+    onSecondaryContainer = colorResource(Res.colors.dark_onSecondaryContainer),
+
+    tertiary = colorResource(Res.colors.dark_tertiary),
+    onTertiary = colorResource(Res.colors.dark_onTertiary),
+
+    tertiaryContainer = colorResource(Res.colors.dark_tertiaryContainer),
+    onTertiaryContainer = colorResource(Res.colors.dark_onTertiaryContainer),
+
+    error = colorResource(Res.colors.dark_error),
+    onError = colorResource(Res.colors.dark_onError),
+
+    errorContainer = colorResource(Res.colors.dark_errorContainer),
+    onErrorContainer = colorResource(Res.colors.dark_onErrorContainer),
+
+    background = colorResource(Res.colors.dark_background),
+    onBackground = colorResource(Res.colors.dark_onBackground),
+
+    surface = colorResource(Res.colors.dark_surface),
+    onSurface = colorResource(Res.colors.dark_onSurface),
+
+    surfaceVariant = colorResource(Res.colors.dark_surfaceVariant),
+    onSurfaceVariant = colorResource(Res.colors.dark_onSurfaceVariant),
+
+    outline = colorResource(Res.colors.dark_outline),
+
+    inverseOnSurface = colorResource(Res.colors.dark_inverseOnSurface),
+    inverseSurface = colorResource(Res.colors.dark_inverseSurface),
+
+    surfaceTint = colorResource(Res.colors.dark_surfaceTint),
 )
 
 @Composable
 private fun LightColorScheme() = lightColorScheme(
-    background = colorResource(Res.colors.background_light),
-    primary = colorResource(Res.colors.primary_light),
-    secondary = colorResource(Res.colors.secondary_light),
-    tertiary = colorResource(Res.colors.tertiary_light),
-    error = colorResource(Res.colors.error_light),
-    surface = colorResource(Res.colors.surface_light),
-    onSurface = colorResource(Res.colors.on_surface_light)
+    primary = colorResource(Res.colors.light_primary),
+    onPrimary = colorResource(Res.colors.light_onPrimary),
+
+    primaryContainer = colorResource(Res.colors.light_primaryContainer),
+    onPrimaryContainer = colorResource(Res.colors.light_onPrimaryContainer),
+
+    inversePrimary = colorResource(Res.colors.light_inversePrimary),
+
+    secondary = colorResource(Res.colors.light_secondary),
+    onSecondary = colorResource(Res.colors.light_onSecondary),
+
+    secondaryContainer = colorResource(Res.colors.light_secondaryContainer),
+    onSecondaryContainer = colorResource(Res.colors.light_onSecondaryContainer),
+
+    tertiary = colorResource(Res.colors.light_tertiary),
+    onTertiary = colorResource(Res.colors.light_onTertiary),
+
+    tertiaryContainer = colorResource(Res.colors.light_tertiaryContainer),
+    onTertiaryContainer = colorResource(Res.colors.light_onTertiaryContainer),
+
+    error = colorResource(Res.colors.light_error),
+    onError = colorResource(Res.colors.light_onError),
+
+    errorContainer = colorResource(Res.colors.light_errorContainer),
+    onErrorContainer = colorResource(Res.colors.light_onErrorContainer),
+
+    background = colorResource(Res.colors.light_background),
+    onBackground = colorResource(Res.colors.light_onBackground),
+
+    surface = colorResource(Res.colors.light_surface),
+    onSurface = colorResource(Res.colors.light_onSurface),
+
+    surfaceVariant = colorResource(Res.colors.light_surfaceVariant),
+    onSurfaceVariant = colorResource(Res.colors.light_onSurfaceVariant),
+
+    outline = colorResource(Res.colors.light_outline),
+
+    inverseOnSurface = colorResource(Res.colors.light_inverseOnSurface),
+    inverseSurface = colorResource(Res.colors.light_inverseSurface),
+
+    surfaceTint = colorResource(Res.colors.light_surfaceTint),
 )
 
 @Composable

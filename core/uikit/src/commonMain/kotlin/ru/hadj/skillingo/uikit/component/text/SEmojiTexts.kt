@@ -25,7 +25,9 @@ fun SEmojiText(
     ) {
         Text(
             text = emoji,
-            style = MaterialTheme.typography.displayLarge
+            style = MaterialTheme.typography.displayLarge,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterVertically)
         )
         Column(
             modifier = Modifier.padding(start = 8.dp),
@@ -37,7 +39,6 @@ fun SEmojiText(
             )
             Text(
                 text = secondText,
-                color = MaterialTheme.colorScheme.onSurface,
                 style = MaterialTheme.typography.bodyLarge,
             )
         }
