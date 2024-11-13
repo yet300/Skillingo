@@ -22,7 +22,7 @@ fun SkillingoTypography() = Typography(
     ),
     bodyLarge = TextStyle(
         fontFamily = fontFamilyResource(Res.fonts.montserrat),
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
     ),
     bodyMedium = TextStyle(
