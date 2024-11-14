@@ -12,5 +12,29 @@
     <string name="endless_tasks_title">Endless Tasks</string>
     <string name="endless_tasks_description">Manage an infinite stream of tasks without limits.
     </string>
+
+    <string name="pomadoro_timer_title">Pomodoro Timer</string>
+    <string name="pomadoro_timer_description">A time management method based on 25-minute stretches
+        of focused work broken by five-minute breaks.
+    </string>
+
+    <string name="etc">Etc</string>
+    <string name="etc_description">And much more…</string>
+
     <string name="continues">Continue</string>
+
+    <string name="change_theme">Change theme</string>
+    <string name="theme_text">You can change your theme from here</string>
+
+    <string name="nothing_os">Nothing OS</string>
+    <string name="nothing_text">A minimal theme with a focus on content by Nothing.</string>
+
+    <string name="default_theme">Default Theme</string>
+    <string name="default_theme_text">A theme specialized for use in applications</string>
+
+    <string name="dark_theme">Dark Theme</string>
+
+    <string name="light_theme">Light Theme</string>
+
+    <string name="system_theme">System Theme</string>
 </resources>

@@ -13,5 +13,32 @@
     <string name="endless_tasks_title">Бесконечные задачи</string>
     <string name="endless_tasks_description">Управляйте бесконечным потоком задач без ограничений.
     </string>
+
+    <string name="pomadoro_timer_title">Таймер Помадора</string>
+    <string name="pomadoro_timer_description">это метод управления временем, основанный на
+        25-минутных отрезках сосредоточенной работы, разбитых на пятиминутные перерывы.
+    </string>
+
+    <string name="etc">И т.д.</string>
+    <string name="etc_description">И многое другое…</string>
+
     <string name="continue">Продолжить</string>
+
+    <string name="change_theme">Изменить тему</string>
+    <string name="theme_text">Выберите тему из списка</string>
+
+    <string name="nothing_os">Nothing OC</string>
+    <string name="nothing_text">Минималистичная тема, ориентированная на контент, от Nothing.
+    </string>
+
+    <string name="default_theme">Тема по умолчанию</string>
+    <string name="default_theme_text">Тема специализированная для использования в приложениях
+    </string>
+
+    <string name="dark_theme">Тёмная тема</string>
+    \
+    <string name="light_theme">Светлая тема</string>
+
+    <string name="system_theme">Системная тема</string>
+
 </resources>
