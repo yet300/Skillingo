@@ -55,6 +55,10 @@ kotlin {
             api(libs.decompose)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlin.serialization.json)
+            implementation(libs.koin.core)
+
+            implementation(projects.core.common)
+            implementation(projects.core.domain)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

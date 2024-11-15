@@ -62,7 +62,6 @@ kotlin {
             implementation(libs.kotlin.serialization.json)
 
             api(libs.koin.core)
-            implementation(project.dependencies.platform(libs.koin.bom))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
