@@ -36,6 +36,10 @@ kotlin {
         commonMain.dependencies {
             api(libs.moko.resources)
             api(libs.moko.graphics)
+            api(libs.koin.compose)
+
+            implementation(projects.core.domain)
+            implementation(projects.core.data)
 
             implementation(libs.moko.compose)
 

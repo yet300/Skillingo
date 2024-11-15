@@ -33,7 +33,7 @@ fun SScrollableScaffold(
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
     snackbarHost: @Composable () -> Unit = {},
-    footer: @Composable ColumnScope.() -> Unit = {},
+    bottomBar: @Composable ColumnScope.() -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     BasicScrollableScaffold(
@@ -54,7 +54,7 @@ fun SScrollableScaffold(
                     ),
                 content = content
             )
-            footer()
+            bottomBar()
         }
     }
 }
