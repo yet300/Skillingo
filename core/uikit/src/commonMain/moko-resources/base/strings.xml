@@ -24,14 +24,10 @@
     <string name="continues">Continue</string>
 
     <string name="change_theme">Change theme</string>
-    <string name="theme_text">You can change your theme from here</string>
-
-    <string name="nothing_os">Nothing OS</string>
-    <string name="nothing_text">A minimal theme with a focus on content by Nothing.</string>
-
-    <string name="default_theme">Default Theme</string>
-    <string name="default_theme_text">A theme specialized for use in applications</string>
-
+    <string name="theme_text">You can easily change the theme of the app to suit your preferences.
+        The theme options fully comply with Google’s Material 3 guidelines, ensuring a consistent
+        and accessible experience.
+    </string>
     <string name="dark_theme">Dark Theme</string>
 
     <string name="light_theme">Light Theme</string>

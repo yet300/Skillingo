@@ -25,16 +25,10 @@
     <string name="continue">Продолжить</string>
 
     <string name="change_theme">Изменить тему</string>
-    <string name="theme_text">Выберите тему из списка</string>
-
-    <string name="nothing_os">Nothing OC</string>
-    <string name="nothing_text">Минималистичная тема, ориентированная на контент, от Nothing.
+    <string name="theme_text">Вы можете легко изменить тему приложения в соответствии с вашими
+        предпочтениями. Все доступные темы полностью соответствуют гайдлайнам Google Material 3,
+        обеспечивая единообразный и доступный пользовательский опыт.
     </string>
-
-    <string name="default_theme">Тема по умолчанию</string>
-    <string name="default_theme_text">Тема специализированная для использования в приложениях
-    </string>
-
     <string name="dark_theme">Тёмная тема</string>
     \
     <string name="light_theme">Светлая тема</string>
