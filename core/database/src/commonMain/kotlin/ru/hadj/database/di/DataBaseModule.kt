@@ -8,6 +8,7 @@ import org.koin.dsl.module
 import ru.hadj.database.db.SkillingoDatabase
 import ru.hadj.database.db.SkillingpRoomDatabase
 import ru.hadj.database.store.OnBoardingDataStore
+import ru.hadj.database.store.ThemeModeDataStore
 
 val databaseModule = module {
     single<SkillingoDatabase> {
@@ -20,5 +21,6 @@ val databaseModule = module {
     }
 
     singleOf(::OnBoardingDataStore)
+    singleOf(::ThemeModeDataStore)
 
 } + dataBasePlatformModule + dataStoreModule
