@@ -8,12 +8,20 @@ import org.koin.dsl.module
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSUserDomainMask
+import ru.hadj.database.db.PomodoroRoomDatabase
 import ru.hadj.database.db.SkillingpRoomDatabase
 
 actual val dataBasePlatformModule: Module = module {
     factory<RoomDatabase.Builder<SkillingpRoomDatabase>> {
         val dbFilePath = documentDirectory() + "/skillingo.db"
         Room.databaseBuilder<SkillingpRoomDatabase>(
+            name = dbFilePath,
+        )
+    }
+
+    factory<RoomDatabase.Builder<PomodoroRoomDatabase>> {
+        val dbFilePath = documentDirectory() + "/pomodoro.db"
+        Room.databaseBuilder<PomodoroRoomDatabase>(
             name = dbFilePath,
         )
     }
