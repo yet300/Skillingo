@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material.icons.rounded.Pause
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Refresh
-import androidx.compose.material.icons.rounded.SkipNext
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -71,7 +71,7 @@ fun SPomodoroTimer(
 
             SIconButton(
                 onClick = onSkip,
-                icon = Icons.Rounded.SkipNext,
+                icon = Icons.Rounded.ChevronRight,
                 contentDescription = "Skip",
                 modifier = Modifier.size(48.dp),
             )
