@@ -69,12 +69,15 @@ kotlin {
 
             implementation(projects.shared.shared)
 
+            implementation(projects.core.domain)
             implementation(projects.core.data)
             implementation(projects.core.uikit)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
+
             implementation(compose.material3AdaptiveNavigationSuite)
             implementation(libs.material3.window.sizeClass)
             implementation(compose.ui)
@@ -86,6 +89,8 @@ kotlin {
             implementation(libs.decompose.compose)
 
             implementation(libs.moko.compose)
+
+            implementation(libs.kotlinx.data.time)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
