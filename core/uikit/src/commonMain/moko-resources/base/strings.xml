@@ -18,6 +18,12 @@
         of focused work broken by five-minute breaks.
     </string>
 
+    <string name="cloud_storage_title">Select a storage location</string>
+    <string name="cloud_storage_description">You can change later in the settings or add services
+        later.
+    </string>
+
+
     <string name="etc">Etc</string>
     <string name="etc_description">And much more…</string>
 
@@ -36,4 +42,5 @@
 
     <string name="task_group_title">Task Groups</string>
     <string name="task_group_description">Here are some example task groups you can create.</string>
+    <string name="task_completion_hint">Hold the task to mark it as completed</string>
 </resources>

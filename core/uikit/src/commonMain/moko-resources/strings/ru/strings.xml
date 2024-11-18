@@ -19,6 +19,11 @@
         25-минутных отрезках сосредоточенной работы, разбитых на пятиминутные перерывы.
     </string>
 
+    <string name="cloud_storage_title">Выберите место для хранения ваших данных</string>
+    <string name="cloud_storage_description">Вы можете поменять позже в насторйках или добавить
+        сервисы позже.
+    </string>
+
     <string name="etc">И т.д.</string>
     <string name="etc_description">И многое другое…</string>
 
@@ -39,5 +44,7 @@
     <string name="task_group_description">Вот несколько примеров групп задач, которые вы можете
         создать.
     </string>
+
+    <string name="task_completion_hint">Зажмите задачу, чтобы отметить её как выполненную</string>
 
 </resources>
