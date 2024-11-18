@@ -24,10 +24,16 @@
         локально. Мы обеспечим синхронизацию и безопасность.
     </string>
 
+    <string name="finish_title">Поздравляем!</string>
+    <string name="finish_description">Вы успешно завершили процесс онбординга. Теперь вы готовы
+        начать свое путешествие!
+    </string>
+
     <string name="etc">И т.д.</string>
     <string name="etc_description">И многое другое…</string>
 
     <string name="continue">Продолжить</string>
+    <string name="start">Начать</string>
 
     <string name="change_theme">Изменить тему</string>
     <string name="theme_text">Вы можете легко изменить тему приложения в соответствии с вашими
@@ -46,5 +52,4 @@
     </string>
 
     <string name="task_completion_hint">Зажмите задачу, чтобы отметить её как выполненную</string>
-
 </resources>

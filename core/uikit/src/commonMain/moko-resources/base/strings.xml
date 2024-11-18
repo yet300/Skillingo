@@ -23,11 +23,17 @@
         local. We ensure synchronization and security.
     </string>
 
+    <string name="finish_title">Congratulations!</string>
+    <string name="finish_description">You’ve completed the onboarding process.
+        Let’s get started with your journey!
+    </string>
+
 
     <string name="etc">Etc</string>
     <string name="etc_description">And much more…</string>
 
     <string name="continues">Continue</string>
+    <string name="start">Start</string>
 
     <string name="change_theme">Change theme</string>
     <string name="theme_text">You can easily change the theme of the app to suit your preferences.
