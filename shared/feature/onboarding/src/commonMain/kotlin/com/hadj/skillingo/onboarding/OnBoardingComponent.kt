@@ -10,6 +10,6 @@ interface OnBoardingComponent {
     fun onClick()
 
     data class Model(
-        val currentThemeMode: ThemeMode = ThemeMode.SYSTEM
+        val currentThemeMode: ThemeMode = ThemeMode.SYSTEM,
     )
 }
