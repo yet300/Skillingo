@@ -20,8 +20,8 @@
     </string>
 
     <string name="cloud_storage_title">Выберите место для хранения ваших данных</string>
-    <string name="cloud_storage_description">Вы можете поменять позже в насторйках или добавить
-        сервисы позже.
+    <string name="cloud_storage_description">Храните данные там, где удобно: на GitHub, в облаке или
+        локально. Мы обеспечим синхронизацию и безопасность.
     </string>
 
     <string name="etc">И т.д.</string>

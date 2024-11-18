@@ -19,8 +19,8 @@
     </string>
 
     <string name="cloud_storage_title">Select a storage location</string>
-    <string name="cloud_storage_description">You can change later in the settings or add services
-        later.
+    <string name="cloud_storage_description">Store your data where you prefer: GitHub, cloud, or
+        local. We ensure synchronization and security.
     </string>
 
 
