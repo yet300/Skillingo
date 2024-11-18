@@ -8,6 +8,7 @@ import com.arkivanov.decompose.extensions.compose.stack.animation.slide
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.hadj.skillingo.root.RootComponent
+import com.hadj.skillingo.screens.onboarding.OnBoardingScreen
 
 @Composable
 fun RootScreen(

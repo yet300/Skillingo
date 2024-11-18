@@ -42,7 +42,8 @@ internal fun BottomNavigation(
                         }
                     },
                     modifier = Modifier.widthIn(max = maxWidth).fillMaxWidth(),
-                    text = stringResource(Res.strings.continues)
+                    text = if (pagerState.currentPage == 5) stringResource(Res.strings.start) else
+                        stringResource(Res.strings.continues),
                 )
             }
         }
