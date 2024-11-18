@@ -35,4 +35,9 @@
 
     <string name="system_theme">Системная тема</string>
 
+    <string name="task_group_title">Группы задач</string>
+    <string name="task_group_description">Вот несколько примеров групп задач, которые вы можете
+        создать.
+    </string>
+
 </resources>

@@ -33,4 +33,7 @@
     <string name="light_theme">Light Theme</string>
 
     <string name="system_theme">System Theme</string>
+
+    <string name="task_group_title">Task Groups</string>
+    <string name="task_group_description">Here are some example task groups you can create.</string>
 </resources>
