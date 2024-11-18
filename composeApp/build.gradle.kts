@@ -89,6 +89,7 @@ kotlin {
             implementation(libs.decompose.compose)
 
             implementation(libs.moko.compose)
+            implementation(libs.moko.graphics)
 
             implementation(libs.kotlinx.data.time)
         }
