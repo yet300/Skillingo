@@ -9,7 +9,12 @@ interface OnBoardingComponent {
 
     fun onClick()
 
+    fun nextPage()
+    fun isLastPage(): Boolean
+
     data class Model(
         val currentThemeMode: ThemeMode = ThemeMode.SYSTEM,
+        val currentPage: Int = 0,
+        val totalPages: Int = 6
     )
 }

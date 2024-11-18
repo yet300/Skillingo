@@ -8,10 +8,12 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.hadj.skillingo.onboarding.OnBoardingComponent
 import com.hadj.skillingo.screens.onboarding.composable.BottomNavigation
 import com.hadj.skillingo.screens.onboarding.composable.PageIndicator
@@ -28,49 +30,49 @@ fun OnBoardingScreen(
     modifier: Modifier = Modifier,
     component: OnBoardingComponent,
 ) {
-    val pagerState = rememberPagerState(pageCount = { 6 })
+    val model by component.model.subscribeAsState()
+    val pagerState =
+        rememberPagerState(initialPage = model.currentPage, pageCount = { model.totalPages })
     val scope = rememberCoroutineScope()
+
     SScrollableScaffold(
         modifier = modifier,
         title = {
-            PageIndicator(pagerState)
+            PageIndicator(pagerState = pagerState)
         },
         bottomBar = {
             BottomNavigation(
                 pagerState = pagerState,
                 scope = scope,
-                pageCount = pagerState.pageCount,
                 component = component
             )
         },
         content = {
             BoxWithConstraints(
-                modifier = Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
                 val maxWidth = minOf(maxWidth, 600.dp)
                 Box(
-                    modifier = Modifier
-                        .widthIn(max = maxWidth),
+                    modifier = Modifier.widthIn(max = maxWidth),
                     contentAlignment = Alignment.Center
                 ) {
                     HorizontalPager(
                         state = pagerState,
                         pageSpacing = 18.dp,
                         userScrollEnabled = false,
-                        modifier = Modifier
-                            .padding(16.dp)
-                    ) {
-                        when (it) {
-                            0 -> WelcomeSection()
-                            1 -> ThemeSections(component = component)
-                            2 -> PomodoroTimerSections()
-                            3 -> TaskGroupSections()
-                            4 -> CloudStorageSections()
-                            5 -> FinishSections()
+                        modifier = Modifier.padding(16.dp),
+                        pageContent = {
+                            when (it) {
+                                0 -> WelcomeSection()
+                                1 -> ThemeSections(component = component)
+                                2 -> PomodoroTimerSections()
+                                3 -> TaskGroupSections()
+                                4 -> CloudStorageSections()
+                                5 -> FinishSections()
+                            }
                         }
-                    }
+                    )
                 }
             }
         }

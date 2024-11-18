@@ -40,6 +40,19 @@ class DefaultOnBoardingComponent(
         }
     }
 
+    override fun nextPage() {
+        val currentPage = _model.value.currentPage
+        if (currentPage < _model.value.totalPages - 1) {
+            _model.value = _model.value.copy(currentPage = currentPage + 1)
+        } else {
+            onClick()
+        }
+    }
+
+    override fun isLastPage(): Boolean {
+        return _model.value.currentPage == _model.value.totalPages - 1
+    }
+
     override fun onClick() = onNavigate()
 
 }

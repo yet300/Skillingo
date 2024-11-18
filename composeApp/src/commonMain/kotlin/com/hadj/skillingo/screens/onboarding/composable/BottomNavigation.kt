@@ -20,7 +20,6 @@ import ru.hadj.skillingo.uikit.component.button.SButton
 internal fun BottomNavigation(
     pagerState: PagerState,
     scope: CoroutineScope,
-    pageCount: Int,
     component: OnBoardingComponent,
 ) {
     SBottomBar(
@@ -34,11 +33,8 @@ internal fun BottomNavigation(
                 SButton(
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage < pageCount - 1) {
-                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                            } else {
-                                component.onClick()
-                            }
+                            component.nextPage()
+                            pagerState.scrollToPage(component.model.value.currentPage)
                         }
                     },
                     modifier = Modifier.widthIn(max = maxWidth).fillMaxWidth(),
