@@ -49,9 +49,11 @@ kotlin {
             export(projects.shared.feature.onboarding)
 
             export(projects.core.uikit)
+            export(projects.core.domain)
             export(libs.moko.resources)
             export(libs.moko.graphics)
 
+            export(libs.kotlinx.coroutines.core)
             export(libs.decompose)
             export(libs.essenty.lifecycle)
             export(libs.essenty.stateKeeper)
@@ -70,6 +72,8 @@ kotlin {
             api(projects.shared.feature.root)
             api(projects.core.uikit)
 
+
+            api(libs.kotlinx.coroutines.core)
             api(libs.decompose)
             api(libs.essenty.lifecycle)
             api(libs.essenty.backHandler)
@@ -77,6 +81,7 @@ kotlin {
             api(libs.essenty.instanceKeeper)
             // implementation зависимости
             implementation(projects.core.data)
+            implementation(projects.core.domain)
             implementation(projects.core.common)
             implementation(libs.koin.core)
         }
