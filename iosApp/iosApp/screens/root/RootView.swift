@@ -24,7 +24,7 @@ struct RootView: View {
             childContent: { child in
                 switch child {
                 case let child as Home : HomeView()
-                case let child as OnBoarding : OnBoardingView(component: child.component)
+                case let child as OnBoarding : OnBoardingView(onboarding: child.component)
                 default: ContentView()
                 }
             }
