@@ -41,7 +41,7 @@ struct OnBoardingView: View {
                 if currentPage < 5 {
                     currentPage += 1
                     DispatchQueue.main.async {
-                        onboarding.setCurrentPage(page: Int32(currentPage))
+                        onboarding.nextPage()
                     }
                 } else {
                     onboarding.onClick()
