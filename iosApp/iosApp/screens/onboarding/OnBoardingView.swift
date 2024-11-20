@@ -9,12 +9,14 @@ import Shared
 
 struct OnBoardingView: View {
     private let onboarding: OnBoardingComponent
-    private let totalPages = 6
+    @StateValue private var model: OnBoardingComponentModel
 
-    @State private var currentPage = 0
+    @State private var currentPage: Int
 
     init(onboarding: OnBoardingComponent) {
         self.onboarding = onboarding
+        self._model = StateValue(onboarding.model)
+        self._currentPage = State(initialValue: Int(onboarding.model.value.currentPage))
     }
     
     var body: some View {
@@ -36,21 +38,24 @@ struct OnBoardingView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
             
             Button(action: {
-                if currentPage < totalPages - 1 {
+                if currentPage < 5 {
                     currentPage += 1
+                    DispatchQueue.main.async {
+                        onboarding.setCurrentPage(page: Int32(currentPage))
+                    }
                 } else {
-                    // Handle finish action
+                    onboarding.onClick()
                 }
             }) {
-                Text(currentPage == totalPages - 1 ? "Finish" : "Next")
+                Text(model.currentPage == model.totalPages - 1 ? Res.strings().start.desc().localized() : Res.strings().continues.desc().localized())
                     .font(.headline)
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+            .padding(.horizontal, UIScreen.main.bounds.width > 600 ? 40 : 16)
             .frame(maxWidth: .infinity)
-            .padding()
         }
     }
 }
