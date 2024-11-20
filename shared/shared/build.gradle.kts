@@ -1,3 +1,4 @@
+import co.touchlab.skie.configuration.FlowInterop
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -6,6 +7,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.skie)
 }
 
 kotlin {
@@ -71,8 +73,9 @@ kotlin {
             api(projects.shared.feature.home)
             api(projects.shared.feature.root)
             api(projects.core.uikit)
+            api(projects.core.domain)
 
-
+            api(libs.moko.graphics)
             api(libs.kotlinx.coroutines.core)
             api(libs.decompose)
             api(libs.essenty.lifecycle)
@@ -81,7 +84,6 @@ kotlin {
             api(libs.essenty.instanceKeeper)
             // implementation зависимости
             implementation(projects.core.data)
-            implementation(projects.core.domain)
             implementation(projects.core.common)
             implementation(libs.koin.core)
         }
@@ -105,5 +107,13 @@ android {
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+}
+
+skie {
+    features {
+        group {
+            FlowInterop.Enabled(false)
+        }
     }
 }
