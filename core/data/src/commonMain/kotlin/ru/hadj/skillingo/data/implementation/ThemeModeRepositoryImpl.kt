@@ -9,7 +9,7 @@ import ru.hadj.skillingo.domain.model.ThemeMode
 import ru.hadj.skillingo.domain.repository.ThemeModeRepository
 
 class ThemeModeRepositoryImpl(
-    private val themeModeDataStore: ThemeModeDataStore
+    private val themeModeDataStore: ThemeModeDataStore,
 ) : ThemeModeRepository {
     override fun readThemeMode(): Flow<ThemeMode> {
         return themeModeDataStore.readThemeMode().map { it.toThemeMode() }
