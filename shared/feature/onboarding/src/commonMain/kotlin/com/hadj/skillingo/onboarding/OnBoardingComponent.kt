@@ -10,7 +10,6 @@ interface OnBoardingComponent {
     fun onClick()
 
     fun nextPage()
-    fun isLastPage(): Boolean
 
     data class Model(
         val currentThemeMode: ThemeMode = ThemeMode.SYSTEM,

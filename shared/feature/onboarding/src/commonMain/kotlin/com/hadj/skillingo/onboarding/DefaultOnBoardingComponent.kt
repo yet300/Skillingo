@@ -49,10 +49,6 @@ class DefaultOnBoardingComponent(
         }
     }
 
-    override fun isLastPage(): Boolean {
-        return _model.value.currentPage == _model.value.totalPages - 1
-    }
-
     override fun onClick() = onNavigate()
 
 }
