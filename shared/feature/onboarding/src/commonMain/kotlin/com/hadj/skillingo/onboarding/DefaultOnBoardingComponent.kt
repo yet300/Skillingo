@@ -9,6 +9,7 @@ import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import ru.hadj.skillingo.common.AppDispatchers
+import ru.hadj.skillingo.domain.controller.TimerController
 import ru.hadj.skillingo.domain.model.ThemeMode
 import ru.hadj.skillingo.domain.repository.ThemeModeRepository
 
@@ -17,9 +18,9 @@ class DefaultOnBoardingComponent(
     private val onNavigate: () -> Unit
 ) : OnBoardingComponent, KoinComponent, ComponentContext by componentContext {
 
+    private val timerController by inject<TimerController>()
     private val themeModeRepository by inject<ThemeModeRepository>()
     private val dispatchers by inject<AppDispatchers>()
-
     private val _model = MutableValue(
         OnBoardingComponent.Model()
     )
@@ -51,4 +52,19 @@ class DefaultOnBoardingComponent(
 
     override fun onClick() = onNavigate()
 
+    override fun startTimer() {
+        timerController.startTimer()
+    }
+
+    override fun pauseTimer() {
+        timerController.pauseTimer()
+    }
+
+    override fun resetTimer() {
+        timerController.resetTimer()
+    }
+
+    override fun switchPhase() {
+        timerController.switchPhase()
+    }
 }

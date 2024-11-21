@@ -24,14 +24,16 @@ import ru.hadj.skillingo.uikit.utils.formatTime
 
 @Composable
 fun SPomodoroTimer(
-    state: TimerState,
+    timeLeft: Long,
+    isRunning: Boolean,
+    isWorkPhase: Boolean,
     onStart: () -> Unit,
     onPause: () -> Unit,
     onReset: () -> Unit,
     onSkip: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val displayTime: String = formatTime(state.timeLeft / 60, state.timeLeft % 60)
+    val displayTime: String = formatTime((timeLeft / 60).toInt(), (timeLeft % 60).toInt())
 
     Column(
         modifier = modifier
@@ -41,8 +43,8 @@ fun SPomodoroTimer(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         SEmojiText(
-            emoji = if (state.isWorkPhase) "🎯" else "☕️",
-            text = if (state.isWorkPhase) "Focus" else "Break",
+            emoji = if (isWorkPhase) "🎯" else "☕️",
+            text = if (isWorkPhase) "Focus" else "Break",
             secondText = displayTime
         )
 
@@ -61,9 +63,9 @@ fun SPomodoroTimer(
             Spacer(modifier = Modifier.width(24.dp))
 
             SFilledIconButton(
-                onClick = if (state.isRunning) onPause else onStart,
-                icon = if (state.isRunning) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
-                contentDescription = if (state.isRunning) "Pause" else "Start",
+                onClick = if (isRunning) onPause else onStart,
+                icon = if (isRunning) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
+                contentDescription = if (isRunning) "Pause" else "Start",
                 modifier = Modifier.size(64.dp),
             )
 

@@ -66,7 +66,7 @@ fun OnBoardingScreen(
                             when (it) {
                                 0 -> WelcomeSection()
                                 1 -> ThemeSections(component = component)
-                                2 -> PomodoroTimerSections()
+                                2 -> PomodoroTimerSections(component = component)
                                 3 -> TaskGroupSections()
                                 4 -> CloudStorageSections()
                                 5 -> FinishSections()
