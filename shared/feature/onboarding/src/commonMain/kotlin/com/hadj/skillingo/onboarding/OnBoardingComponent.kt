@@ -21,7 +21,7 @@ interface OnBoardingComponent {
         val currentPage: Int = 0,
         val totalPages: Int = 6,
 
-        val timeLeft: Long = 25 * 60,
+        val timeLeft: Long = 0L,
         val isRunning: Boolean = false,
         val isWorkPhase: Boolean = true
     )
