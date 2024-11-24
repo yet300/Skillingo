@@ -10,6 +10,9 @@ import ru.hadj.database.model.PomodoroTimerDBO
 
 @Dao
 interface PomodoroDao {
+    @Query("SELECT * FROM pomodoro_timer")
+    fun getPomodoroTimers(): Flow<List<PomodoroTimerDBO>>
+
     @Query("SELECT * FROM pomodoro_timer WHERE id = :id")
     fun getPomodoroTimer(id: Long = 0): Flow<PomodoroTimerDBO?>
 
@@ -21,4 +24,4 @@ interface PomodoroDao {
 
     @Query("DELETE FROM pomodoro_timer WHERE id = :id")
     suspend fun deletePomodoroTimer(id: Long = 0)
-} 
+}
